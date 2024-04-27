@@ -16,6 +16,7 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import * as React from "react";
+import { useAppContext } from "../Provider/AppProvider";
 import { SIDE_BAR_ICONS } from "../constant/SideBarIcons";
 import DisplayChatBox from "./DisplayChatBox";
 import TopicComponent from "./sidebar/TopicComponent";
@@ -26,6 +27,7 @@ const firstDrawerWidth = 80;
 
 export default function SideBar() {
   const displayTopics = false;
+  const { name } = useAppContext();
   return (
     <>
       <Box sx={{ display: "flex" }}>
