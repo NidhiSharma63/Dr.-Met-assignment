@@ -1,6 +1,4 @@
 import AddIcon from "@mui/icons-material/Add";
-import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
-import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import {
   Autocomplete,
@@ -24,6 +22,7 @@ import ResearchData from "../constant/ResearchData.json";
 import { SIDE_BAR_ICONS } from "../constant/SideBarIcons";
 import UserData from "../constant/UserData.json";
 import DisplayChatBox from "./DisplayChatBox";
+import ChevronIcon from "./sidebar/ChevronIcon";
 import SwitchComponent from "./sidebar/SwitchComponent";
 import TopicComponent from "./sidebar/TopicComponent";
 import UserComponent from "./sidebar/UserComponent";
@@ -151,23 +150,7 @@ export default function SideBar() {
           </List>
         </Drawer>
       </Box>
-      <IconButton
-        onClick={handleClickOnChveronIcon}
-        sx={{
-          position: "absolute",
-          top: "350px",
-          left: drawerWidth === 300 ? "360px" : "80px",
-          zIndex: 9999,
-          backgroundColor: "#31333E",
-          // transform: "translate(-50%, -50%)",
-        }}>
-        {/* <ChevronLeftOutlinedIcon sx={{ fontSize: "16px" }} /> */}
-        {drawerWidth === 300 ? (
-          <ChevronLeftOutlinedIcon sx={{ fontSize: "16px" }} />
-        ) : (
-          <ChevronRightOutlinedIcon sx={{ fontSize: "16px" }} />
-        )}
-      </IconButton>
+      <ChevronIcon handleClickOnChveronIcon={handleClickOnChveronIcon} drawerWidth={drawerWidth} />
       {/* second drawer */}
 
       <Box sx={{ display: "flex" }}>
