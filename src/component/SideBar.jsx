@@ -50,8 +50,11 @@ export default function SideBar() {
       setSelectedComponent(selectedUser);
     } else {
       const selectedPaper = ResearchData.find(
-        (paper) => paper.name.includes(autoCompleteValue) || paper.id.includes(autoCompleteValue)
+        (paper) =>
+          paper.name.toLocaleLowerCase().includes(autoCompleteValue.toLocaleLowerCase()) ||
+          paper.id.toLocaleLowerCase().includes(autoCompleteValue)
       );
+      setSelectedComponent(selectedPaper);
     }
   };
   const handleKeyPress = (event) => {
