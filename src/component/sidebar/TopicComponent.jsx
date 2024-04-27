@@ -14,6 +14,7 @@ const TopicComponent = () => {
       {ResearchData.map((paper) => {
         return (
           <Box
+            key={paper.id}
             onClick={() => handleClickOnResearch(paper.id)}
             sx={{
               padding: "15px",

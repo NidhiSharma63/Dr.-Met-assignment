@@ -18,12 +18,18 @@ import ListItem from "@mui/material/ListItem";
 import * as React from "react";
 import { useAppContext } from "../Provider/AppProvider";
 import { SIDE_BAR_ICONS } from "../constant/SideBarIcons";
+import UserData from "../constant/UserData.json";
 import DisplayChatBox from "./DisplayChatBox";
 import TopicComponent from "./sidebar/TopicComponent";
 import UserComponent from "./sidebar/UserComponent";
 
 const drawerWidth = 300;
 const firstDrawerWidth = 80;
+
+const userNames = UserData.map((user) => user.name);
+const userIds = UserData.map((user) => user.id);
+
+const optionsForUsers = [...userNames, ...userIds];
 
 export default function SideBar() {
   const displayTopics = false;
@@ -119,18 +125,17 @@ export default function SideBar() {
               height: "93px",
             }}>
             <Autocomplete
-              disablePortal
               id="combo-box-demo"
-              options={["Option 1", "Option 2", "Option 3"]}
+              options={optionsForUsers}
               sx={{ width: 300, borderRadius: "20px" }}
               renderInput={(params) => (
                 <TextField
+                  onChange={(e) => console.log(e.target.value)}
                   {...params}
                   sx={{
                     borderRadius: "20px",
                     "& .MuiOutlinedInput-root": {
                       borderRadius: "50px",
-                      height: "32px",
 
                       legend: {
                         marginLeft: "30px",
@@ -143,8 +148,10 @@ export default function SideBar() {
                   }}
                   placeholder="Search ID"
                   InputProps={{
+                    ...params.InputProps,
+                    endAdornment: null,
                     startAdornment: (
-                      <InputAdornment position="start" sx={{ paddingLef: "5px" }}>
+                      <InputAdornment position="start">
                         <SearchOutlinedIcon sx={{ fontSize: "18px" }} />
                       </InputAdornment>
                     ),

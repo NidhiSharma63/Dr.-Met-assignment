@@ -36,9 +36,10 @@ const DisplayChatBox = () => {
           <Divider color="#979797" />
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          {selectedComponent?.chats.map((chat) => {
+          {selectedComponent?.chats.map((chat, i) => {
             return (
               <Box
+                key={i}
                 sx={{
                   alignSelf: chat.boat ? "flex-start" : "flex-end",
                   //   border: "1px solid red",

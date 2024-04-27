@@ -9,7 +9,7 @@ const AppContext = createContext({
 
 const AppProvider = ({ children }) => {
   const [selectedComponent, setSelectedComponent] = useState(UserData[0]);
-  const [userComponentIsGettingDisplayed, setUserComponentIsGettingDisplayed] = useState(false);
+  const [userComponentIsGettingDisplayed, setUserComponentIsGettingDisplayed] = useState(true);
   const value = {
     selectedComponent,
     setSelectedComponent,
