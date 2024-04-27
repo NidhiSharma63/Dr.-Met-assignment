@@ -54,12 +54,12 @@ const DisplayChatBox = () => {
                       backgroundColor: "black",
                       padding: "10px",
                       borderRadius: "50%",
-                      height: "30px",
-                      width: "30px",
+                      height: "40px",
+                      width: "40px",
                       display: "flex",
                       alignContent: "center",
                     }}>
-                    <img src="plus.png" className="plus-icon" />
+                    <img src="plus.png" className="rotating-image" />
                   </Box>
                 )}
                 <Typography
