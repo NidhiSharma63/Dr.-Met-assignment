@@ -158,7 +158,7 @@ export default function SideBar() {
           </ListItem>
           <List>{displayTopics ? <UserComponent /> : <TopicComponent />}</List>
         </Drawer>
-        <Box component="main" sx={{ flexGrow: 1, bgcolor: "#191B22", height: "100%" }}>
+        <Box component="main" sx={{ flexGrow: 1, bgcolor: "#191B22", height: "100vh", overflow: "hidden" }}>
           {/* components */}
           <DisplayChatBox firstDrawerWidth={firstDrawerWidth} drawerWidth={drawerWidth} />
         </Box>

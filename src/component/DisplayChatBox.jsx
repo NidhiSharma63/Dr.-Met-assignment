@@ -16,6 +16,8 @@ const DisplayChatBox = ({ drawerWidth, firstDrawerWidth }) => {
           display: "flex",
           flexDirection: "column",
           gap: "80px",
+          //   justifyContent: "flex-end",
+          height: "100%",
         }}>
         <Box>
           <Typography color="white">{UserData[0].name}</Typography>
@@ -78,39 +80,39 @@ const DisplayChatBox = ({ drawerWidth, firstDrawerWidth }) => {
             );
           })}
         </Box>
-      </Box>
-      <Box sx={{ justifySelf: "flex-end", marginLeft: "100px" }}>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <TextField
-            sx={{
-              width: "90%",
-              borderRadius: "10px",
-              backgroundColor: "#31333E",
-              "& .MuiOutlinedInput-root": {
+        <Box sx={{ display: "flex", height: "100%", alignItems: "flex-end" }}>
+          <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
+            <TextField
+              sx={{
+                width: "90%",
                 borderRadius: "10px",
-                height: "42px",
+                backgroundColor: "#31333E",
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "10px",
+                  height: "42px",
 
-                legend: {
-                  marginLeft: "30px",
+                  legend: {
+                    marginLeft: "30px",
+                  },
                 },
-              },
-              "& .MuiInputBase-input": {
-                fontSize: "12px",
-                borderRadius: "10px",
-              },
-            }}
-            placeholder="Type your message here"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end" sx={{ paddingLef: "5px" }}>
-                  <SendIcon sx={{ fontSize: "18px" }} />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <IconButton sx={{ backgroundColor: "#2E334E", marginLeft: "10px", padding: "15px" }}>
-            <KeyboardVoiceIcon />
-          </IconButton>
+                "& .MuiInputBase-input": {
+                  fontSize: "12px",
+                  borderRadius: "10px",
+                },
+              }}
+              placeholder="Type your message here"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end" sx={{ paddingLef: "5px" }}>
+                    <SendIcon sx={{ fontSize: "18px" }} />
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <IconButton sx={{ backgroundColor: "#2E334E", marginLeft: "10px", padding: "15px" }}>
+              <KeyboardVoiceIcon />
+            </IconButton>
+          </Box>
         </Box>
       </Box>
     </>
