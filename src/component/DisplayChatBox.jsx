@@ -6,6 +6,7 @@ import { useAppContext } from "../Provider/AppProvider";
 const DisplayChatBox = () => {
   const { selectedComponent } = useAppContext();
 
+  console.log({ selectedComponent }, "from displaychat");
   return (
     <>
       <Box

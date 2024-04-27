@@ -17,23 +17,53 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import * as React from "react";
 import { useAppContext } from "../Provider/AppProvider";
+import ResearchData from "../constant/ResearchData.json";
 import { SIDE_BAR_ICONS } from "../constant/SideBarIcons";
 import UserData from "../constant/UserData.json";
 import DisplayChatBox from "./DisplayChatBox";
 import TopicComponent from "./sidebar/TopicComponent";
 import UserComponent from "./sidebar/UserComponent";
-
 const drawerWidth = 300;
 const firstDrawerWidth = 80;
 
 const userNames = UserData.map((user) => user.name);
 const userIds = UserData.map((user) => user.id);
 
+const ResearchPapersNames = ResearchData.map((paper) => paper.name);
+const ResearchPapersIds = ResearchData.map((paper) => paper.id);
 const optionsForUsers = [...userNames, ...userIds];
+const optionsForResearchPapers = [...ResearchPapersNames, ...ResearchPapersIds];
 
 export default function SideBar() {
-  const displayTopics = false;
-  const { userComponentIsGettingDisplayed } = useAppContext();
+  const { userComponentIsGettingDisplayed, setSelectedComponent, selectedComponent } = useAppContext();
+  const [autoCompleteValue, setAutoCompleteValue] = React.useState("");
+
+  const displayUserAccordingToSearch = () => {
+    if (userComponentIsGettingDisplayed) {
+      const selectedUser = UserData.find((user) => {
+        return (
+          user.name.toLocaleLowerCase().includes(autoCompleteValue.toLocaleLowerCase()) ||
+          user.id.toLocaleLowerCase().includes(autoCompleteValue.toLocaleLowerCase())
+        );
+      });
+      // console.log(selectedUser);
+      setSelectedComponent(selectedUser);
+    } else {
+      const selectedPaper = ResearchData.find(
+        (paper) => paper.name.includes(autoCompleteValue) || paper.id.includes(autoCompleteValue)
+      );
+    }
+  };
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      displayUserAccordingToSearch();
+    }
+  };
+
+  const handleChangeInput = (event) => {
+    setAutoCompleteValue(event.target.value);
+  };
+  // console.log({ autoCompleteValue });
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -126,11 +156,17 @@ export default function SideBar() {
             }}>
             <Autocomplete
               id="combo-box-demo"
-              options={optionsForUsers}
+              options={userComponentIsGettingDisplayed ? optionsForUsers : optionsForResearchPapers}
+              onKeyDown={handleKeyPress}
+              value={autoCompleteValue}
+              onChange={(event, newValue) => {
+                setAutoCompleteValue(newValue);
+              }}
               sx={{ width: 300, borderRadius: "20px" }}
               renderInput={(params) => (
                 <TextField
-                  onChange={(e) => console.log(e.target.value)}
+                  // value={autoCompleteValue}
+                  onChange={handleChangeInput}
                   {...params}
                   sx={{
                     borderRadius: "20px",
@@ -160,6 +196,7 @@ export default function SideBar() {
               )}
             />
             <IconButton
+              onClick={displayUserAccordingToSearch}
               sx={{ backgroundColor: "white", color: "#5D68B0", borderRadius: "5px!important", marginLeft: "10px" }}>
               <AddIcon sx={{ fontSize: "16px" }} />
             </IconButton>
