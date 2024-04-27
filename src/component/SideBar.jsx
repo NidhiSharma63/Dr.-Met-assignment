@@ -17,6 +17,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import * as React from "react";
 import { SIDE_BAR_ICONS } from "../constant/SideBarIcons";
+import DisplayChatBox from "./DisplayChatBox";
 import TopicComponent from "./sidebar/TopicComponent";
 import UserComponent from "./sidebar/UserComponent";
 
@@ -82,9 +83,6 @@ export default function SideBar() {
             ))}
           </List>
         </Drawer>
-        <Box component="main" sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}>
-          {/* components */}
-        </Box>
       </Box>
       {/* second drawer */}
       <Box sx={{ display: "flex" }}>
@@ -98,7 +96,7 @@ export default function SideBar() {
               boxSizing: "border-box",
               overflow: "hidden",
               backgroundColor: "#1B1C21",
-              //   borderLeft: "2px solid #1B1C21",
+              borderRight: "2px solid #1B1C21",
               //   border: "3px solid orange",
               marginLeft: "80px",
             },
@@ -160,8 +158,9 @@ export default function SideBar() {
           </ListItem>
           <List>{displayTopics ? <UserComponent /> : <TopicComponent />}</List>
         </Drawer>
-        <Box component="main" sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, bgcolor: "#191B22", height: "100%" }}>
           {/* components */}
+          <DisplayChatBox firstDrawerWidth={firstDrawerWidth} drawerWidth={drawerWidth} />
         </Box>
       </Box>
     </>

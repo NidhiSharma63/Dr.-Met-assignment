@@ -1,26 +1,74 @@
 [
   {
     "id": "123",
-    "name": "Priyanka Sharma"
+    "name": "Priyanka Sharma",
+    "chats": [
+      {
+        "user": "Priyanka lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      },
+      {
+        "boat": "Priyanka ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    ]
   },
   {
     "id": "143",
-    "name": "Ram Sharma"
+    "name": "Ram Sharma",
+    "chats": [
+      {
+        "user": "Ram lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      },
+      {
+        "boat": "Ram Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    ]
   },
   {
     "id": "179",
-    "name": "Khushi Sharma"
+    "name": "Khushi Sharma",
+    "chats": [
+      {
+        "user": "Khushi lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      },
+      {
+        "boat": "Khushi Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    ]
   },
   {
     "id": "159",
-    "name": "Shubham Sharma"
+    "name": "Shubham Sharma",
+    "chats": [
+      {
+        "user": "Khushi lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      },
+      {
+        "boat": "Khushi Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    ]
   },
   {
     "id": "167",
-    "name": "Rohit Sharma"
+    "name": "Rohit Sharma",
+    "chats": [
+      {
+        "user": "Rohit lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      },
+      {
+        "boat": "Rohit Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    ]
   },
   {
     "id": "187",
-    "name": "Rajat Sharma"
+    "name": "Rajat Sharma",
+    "chats": [
+      {
+        "user": "Rajat lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      },
+      {
+        "boat": "Rajat Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    ]
   }
 ]
