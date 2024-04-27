@@ -1,4 +1,6 @@
 import AddIcon from "@mui/icons-material/Add";
+import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
+import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import {
   Autocomplete,
@@ -15,7 +17,7 @@ import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import * as React from "react";
+import { useState } from "react";
 import { useAppContext } from "../Provider/AppProvider";
 import ResearchData from "../constant/ResearchData.json";
 import { SIDE_BAR_ICONS } from "../constant/SideBarIcons";
@@ -23,7 +25,7 @@ import UserData from "../constant/UserData.json";
 import DisplayChatBox from "./DisplayChatBox";
 import TopicComponent from "./sidebar/TopicComponent";
 import UserComponent from "./sidebar/UserComponent";
-const drawerWidth = 300;
+
 const firstDrawerWidth = 80;
 
 const userNames = UserData.map((user) => user.name);
@@ -35,8 +37,9 @@ const optionsForUsers = [...userNames, ...userIds];
 const optionsForResearchPapers = [...ResearchPapersNames, ...ResearchPapersIds];
 
 export default function SideBar() {
+  const [drawerWidth, setDrawerWidth] = useState(300);
   const { userComponentIsGettingDisplayed, setSelectedComponent, selectedComponent } = useAppContext();
-  const [autoCompleteValue, setAutoCompleteValue] = React.useState("");
+  const [autoCompleteValue, setAutoCompleteValue] = useState("");
 
   const displayUserAccordingToSearch = () => {
     if (userComponentIsGettingDisplayed) {
@@ -65,6 +68,10 @@ export default function SideBar() {
 
   const handleChangeInput = (event) => {
     setAutoCompleteValue(event.target.value);
+  };
+
+  const handleClickOnChveronIcon = () => {
+    setDrawerWidth((prevDrawerWidth) => (prevDrawerWidth === 300 ? 0 : 300));
   };
   // console.log({ autoCompleteValue });
   return (
@@ -125,9 +132,26 @@ export default function SideBar() {
           </List>
         </Drawer>
       </Box>
+      <IconButton
+        onClick={handleClickOnChveronIcon}
+        sx={{
+          position: "absolute",
+          top: "350px",
+          left: drawerWidth === 300 ? "360px" : "80px",
+          zIndex: 9999,
+          backgroundColor: "#31333E",
+          // transform: "translate(-50%, -50%)",
+        }}>
+        {/* <ChevronLeftOutlinedIcon sx={{ fontSize: "16px" }} /> */}
+        {drawerWidth === 300 ? (
+          <ChevronLeftOutlinedIcon sx={{ fontSize: "16px" }} />
+        ) : (
+          <ChevronRightOutlinedIcon sx={{ fontSize: "16px" }} />
+        )}
+      </IconButton>
       {/* second drawer */}
+
       <Box sx={{ display: "flex" }}>
-        <AppBar position="fixed" sx={{ width: drawerWidth, overflowY: "hidden" }}></AppBar>
         <Drawer
           sx={{
             width: drawerWidth,
