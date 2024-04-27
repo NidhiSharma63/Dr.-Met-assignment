@@ -18,6 +18,7 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { useAppContext } from "../Provider/AppProvider";
 import ResearchData from "../constant/ResearchData.json";
 import { SIDE_BAR_ICONS } from "../constant/SideBarIcons";
@@ -49,6 +50,10 @@ export default function SideBar() {
           user.id.toLocaleLowerCase().includes(autoCompleteValue.toLocaleLowerCase())
         );
       });
+      if (!selectedUser) {
+        toast.error("User not found");
+        return;
+      }
       // console.log(selectedUser);
       setSelectedComponent(selectedUser);
     } else {
@@ -57,6 +62,10 @@ export default function SideBar() {
           paper.name.toLocaleLowerCase().includes(autoCompleteValue.toLocaleLowerCase()) ||
           paper.id.toLocaleLowerCase().includes(autoCompleteValue)
       );
+      if (!selectedPaper) {
+        toast.error("Paper not found");
+        return;
+      }
       setSelectedComponent(selectedPaper);
     }
   };
