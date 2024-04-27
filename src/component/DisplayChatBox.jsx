@@ -4,9 +4,8 @@ import { Box, Divider, IconButton, InputAdornment, TextField, Typography } from 
 import React from "react";
 import { useAppContext } from "../Provider/AppProvider";
 const DisplayChatBox = () => {
-  const { selectedComponent } = useAppContext();
+  const { selectedComponent, darkThemeEnabled } = useAppContext();
 
-  console.log({ selectedComponent }, "from displaychat");
   return (
     <>
       <Box
@@ -21,13 +20,13 @@ const DisplayChatBox = () => {
           height: "100%",
         }}>
         <Box>
-          <Typography color="white">{selectedComponent?.name}</Typography>
+          <Typography color={darkThemeEnabled ? "white" : "black"}>{selectedComponent?.name}</Typography>
           <Typography
             sx={{
               textAlign: "center",
               top: "13px",
               position: "relative",
-              backgroundColor: "#191B22",
+              backgroundColor: darkThemeEnabled ? "#1B1C21" : "#EEF0F9",
               width: "100px",
               left: "40%",
               color: "#979797",
@@ -51,7 +50,7 @@ const DisplayChatBox = () => {
                 {chat.boat && (
                   <Box
                     sx={{
-                      backgroundColor: "black",
+                      backgroundColor: darkThemeEnabled ? "#32375A" : "black",
                       padding: "10px",
                       borderRadius: "50%",
                       height: "40px",
@@ -64,7 +63,13 @@ const DisplayChatBox = () => {
                 )}
                 <Typography
                   sx={{
-                    background: chat.boat ? "#32375A" : "#292C3A",
+                    background: chat.boat
+                      ? darkThemeEnabled
+                        ? "#32375A"
+                        : "#9CA1C8"
+                      : darkThemeEnabled
+                      ? "#292C3A"
+                      : "#33385B",
                     padding: "10px",
                     borderRadius: "10px",
                     width: "500px",
@@ -76,7 +81,14 @@ const DisplayChatBox = () => {
                   {chat.user || chat.boat}
                 </Typography>
                 {chat.user && (
-                  <Box sx={{ height: "40px", width: "40px", borderRadius: "50%", backgroundColor: "#292C3A" }} />
+                  <Box
+                    sx={{
+                      height: "40px",
+                      width: "40px",
+                      borderRadius: "50%",
+                      backgroundColor: darkThemeEnabled ? "#292C3A" : "#33385B",
+                    }}
+                  />
                 )}
               </Box>
             );
@@ -88,7 +100,7 @@ const DisplayChatBox = () => {
               sx={{
                 width: "90%",
                 borderRadius: "10px",
-                backgroundColor: "#31333E",
+                backgroundColor: darkThemeEnabled ? "#31333E" : "#D8DAE4",
                 "& .MuiOutlinedInput-root": {
                   borderRadius: "10px",
                   height: "42px",
@@ -111,7 +123,8 @@ const DisplayChatBox = () => {
                 ),
               }}
             />
-            <IconButton sx={{ backgroundColor: "#2E334E", marginLeft: "10px", padding: "15px" }}>
+            <IconButton
+              sx={{ backgroundColor: darkThemeEnabled ? "#2E334E" : "#D8DAE4", marginLeft: "10px", padding: "15px" }}>
               <KeyboardVoiceIcon />
             </IconButton>
           </Box>

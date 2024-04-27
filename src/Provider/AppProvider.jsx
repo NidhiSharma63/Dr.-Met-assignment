@@ -5,16 +5,21 @@ const AppContext = createContext({
   setSelectedComponent: () => {},
   userComponentIsGettingDisplayed: true,
   setUserComponentIsGettingDisplayed: () => {},
+  darkThemeEnabled: true,
+  setDarkThemeEnabled: () => {},
 });
 
 const AppProvider = ({ children }) => {
   const [selectedComponent, setSelectedComponent] = useState(UserData[0]);
   const [userComponentIsGettingDisplayed, setUserComponentIsGettingDisplayed] = useState(false);
+  const [darkThemeEnabled, setDarkThemeEnabled] = useState(true);
   const value = {
     selectedComponent,
     setSelectedComponent,
     userComponentIsGettingDisplayed,
     setUserComponentIsGettingDisplayed,
+    darkThemeEnabled,
+    setDarkThemeEnabled,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

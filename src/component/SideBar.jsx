@@ -40,7 +40,7 @@ const optionsForResearchPapers = [...ResearchPapersNames, ...ResearchPapersIds];
 
 export default function SideBar() {
   const [drawerWidth, setDrawerWidth] = useState(300);
-  const { userComponentIsGettingDisplayed, setSelectedComponent, selectedComponent } = useAppContext();
+  const { userComponentIsGettingDisplayed, setSelectedComponent, darkThemeEnabled } = useAppContext();
   const [autoCompleteValue, setAutoCompleteValue] = useState("");
 
   const displayUserAccordingToSearch = () => {
@@ -83,7 +83,7 @@ export default function SideBar() {
   const handleClickOnChveronIcon = () => {
     setDrawerWidth((prevDrawerWidth) => (prevDrawerWidth === 300 ? 0 : 300));
   };
-  // console.log({ autoCompleteValue });
+
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -256,7 +256,9 @@ export default function SideBar() {
             )}
           </List>
         </Drawer>
-        <Box component="main" sx={{ flexGrow: 1, bgcolor: "#191B22", height: "100vh", overflow: "hidden" }}>
+        <Box
+          component="main"
+          sx={{ flexGrow: 1, bgcolor: darkThemeEnabled ? "#1B1C21" : "#EEF0F9", height: "100vh", overflow: "hidden" }}>
           {/* components */}
 
           <DisplayChatBox firstDrawerWidth={firstDrawerWidth} drawerWidth={drawerWidth} />

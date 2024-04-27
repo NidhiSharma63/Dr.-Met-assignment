@@ -1,6 +1,7 @@
 import { Box, Switch, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
+import { useAppContext } from "../../Provider/AppProvider";
 const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />)(
   ({ theme }) => ({
     width: 42,
@@ -52,8 +53,15 @@ const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVis
 );
 
 const SwitchComponent = () => {
+  const { setDarkThemeEnabled } = useAppContext();
   const handleClick = (event) => {
-    console.log(event.target.checked);
+    // console.log(event.target.checked);
+
+    if (event.target.checked) {
+      setDarkThemeEnabled(true);
+    } else {
+      setDarkThemeEnabled(false);
+    }
   };
   return (
     <Box
