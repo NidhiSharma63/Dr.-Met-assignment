@@ -3,7 +3,7 @@ import React from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AppProvider } from "./Provider/AppProvider";
-import SideBar from "./component/SideBar";
+import Layout from "./component/Layout";
 
 const App = () => {
   const darkTheme = createTheme({
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <AppProvider>
       <ThemeProvider theme={darkTheme}>
-        <SideBar />
+        <Layout />
         <ToastContainer theme="dark" />
       </ThemeProvider>
     </AppProvider>
