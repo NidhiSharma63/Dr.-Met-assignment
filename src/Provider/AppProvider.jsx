@@ -1,14 +1,20 @@
 import { createContext, useContext, useState } from "react";
+import UserData from "../constant/UserData.json";
 const AppContext = createContext({
-  name: "", // Provide a default or initial value
-  setName: () => {}, // Provide an empty function
+  selectedComponent: {},
+  setSelectedComponent: () => {},
+  userComponentIsGettingDisplayed: true,
+  setUserComponentIsGettingDisplayed: () => {},
 });
 
 const AppProvider = ({ children }) => {
-  const [name, setName] = useState("World");
+  const [selectedComponent, setSelectedComponent] = useState(UserData[0]);
+  const [userComponentIsGettingDisplayed, setUserComponentIsGettingDisplayed] = useState(true);
   const value = {
-    name,
-    setName,
+    selectedComponent,
+    setSelectedComponent,
+    userComponentIsGettingDisplayed,
+    setUserComponentIsGettingDisplayed,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

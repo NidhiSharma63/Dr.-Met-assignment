@@ -27,7 +27,7 @@ const firstDrawerWidth = 80;
 
 export default function SideBar() {
   const displayTopics = false;
-  const { name } = useAppContext();
+  const { userComponentIsGettingDisplayed } = useAppContext();
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -158,10 +158,11 @@ export default function SideBar() {
             </IconButton>
             {/* <Avatar alt="" src="" sx={{ width: 45, height: 45, backgroundColor: "avatar.main" }} /> */}
           </ListItem>
-          <List>{displayTopics ? <UserComponent /> : <TopicComponent />}</List>
+          <List>{userComponentIsGettingDisplayed ? <UserComponent /> : <TopicComponent />}</List>
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, bgcolor: "#191B22", height: "100vh", overflow: "hidden" }}>
           {/* components */}
+
           <DisplayChatBox firstDrawerWidth={firstDrawerWidth} drawerWidth={drawerWidth} />
         </Box>
       </Box>

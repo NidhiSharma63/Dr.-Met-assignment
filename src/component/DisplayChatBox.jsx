@@ -2,9 +2,9 @@ import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import SendIcon from "@mui/icons-material/Send";
 import { Box, Divider, IconButton, InputAdornment, TextField, Typography } from "@mui/material";
 import React from "react";
-import UserData from ".././constant/UserData.json";
-const DisplayChatBox = ({ drawerWidth, firstDrawerWidth }) => {
-  console.log(UserData);
+import { useAppContext } from "../Provider/AppProvider";
+const DisplayChatBox = () => {
+  const { selectedComponent } = useAppContext();
 
   return (
     <>
@@ -20,7 +20,7 @@ const DisplayChatBox = ({ drawerWidth, firstDrawerWidth }) => {
           height: "100%",
         }}>
         <Box>
-          <Typography color="white">{UserData[0].name}</Typography>
+          <Typography color="white">{selectedComponent?.name}</Typography>
           <Typography
             sx={{
               textAlign: "center",
@@ -36,7 +36,7 @@ const DisplayChatBox = ({ drawerWidth, firstDrawerWidth }) => {
           <Divider color="#979797" />
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          {UserData[0].chats.map((chat) => {
+          {selectedComponent?.chats.map((chat) => {
             return (
               <Box
                 sx={{
