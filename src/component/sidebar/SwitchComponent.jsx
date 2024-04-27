@@ -12,9 +12,9 @@ const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVis
       transitionDuration: "300ms",
       "&.Mui-checked": {
         transform: "translateX(16px)",
-        color: "#fff",
+        color: "#536AE0",
         "& + .MuiSwitch-track": {
-          backgroundColor: theme.palette.mode === "dark" ? "#2ECA45" : "#65C466",
+          backgroundColor: "#EDEDED",
           opacity: 1,
           border: 0,
         },
@@ -27,7 +27,8 @@ const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVis
         border: "6px solid #fff",
       },
       "&.Mui-disabled .MuiSwitch-thumb": {
-        color: theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[600],
+        color: "#536AE0",
+        // color: theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[600],
       },
       "&.Mui-disabled + .MuiSwitch-track": {
         opacity: theme.palette.mode === "light" ? 0.7 : 0.3,
@@ -37,10 +38,11 @@ const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVis
       boxSizing: "border-box",
       width: 22,
       height: 22,
+      color: "#536AE0",
     },
     "& .MuiSwitch-track": {
       borderRadius: 26 / 2,
-      backgroundColor: theme.palette.mode === "light" ? "#E9E9EA" : "#39393D",
+      backgroundColor: "#EDEDED",
       opacity: 1,
       transition: theme.transitions.create(["background-color"], {
         duration: 500,
@@ -50,6 +52,9 @@ const IOSSwitch = styled((props) => <Switch focusVisibleClassName=".Mui-focusVis
 );
 
 const SwitchComponent = () => {
+  const handleClick = (event) => {
+    console.log(event.target.checked);
+  };
   return (
     <Box
       sx={{
@@ -62,7 +67,11 @@ const SwitchComponent = () => {
         alignContent: "center",
       }}>
       <Typography fontSize={"9px"}>Mode 1</Typography>
-      <IOSSwitch sx={{ mariginTop: 5, mariginBottom: 5, rotate: "270deg", marginLeft: "-8px" }} defaultChecked />
+      <IOSSwitch
+        sx={{ mariginTop: 5, mariginBottom: 5, rotate: "270deg", marginLeft: "-8px" }}
+        defaultChecked
+        onClick={handleClick}
+      />
       <Typography fontSize={"9px"}>Mode 2</Typography>
     </Box>
   );
