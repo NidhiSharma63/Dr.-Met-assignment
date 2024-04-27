@@ -205,7 +205,13 @@ export default function SideBar() {
             </IconButton>
             {/* <Avatar alt="" src="" sx={{ width: 45, height: 45, backgroundColor: "avatar.main" }} /> */}
           </ListItem>
-          <List>{userComponentIsGettingDisplayed ? <UserComponent /> : <TopicComponent />}</List>
+          <List>
+            {userComponentIsGettingDisplayed ? (
+              <UserComponent setAutoCompleteValue={setAutoCompleteValue} />
+            ) : (
+              <TopicComponent setAutoCompleteValue={setAutoCompleteValue} />
+            )}
+          </List>
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, bgcolor: "#191B22", height: "100vh", overflow: "hidden" }}>
           {/* components */}

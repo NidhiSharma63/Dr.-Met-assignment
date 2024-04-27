@@ -3,11 +3,12 @@ import React from "react";
 import { useAppContext } from "../../Provider/AppProvider";
 import UserData from "../../constant/UserData.json";
 
-const UserComponent = () => {
+const UserComponent = ({ setAutoCompleteValue }) => {
   const { setSelectedComponent, selectedComponent } = useAppContext();
   const handleClickOnUser = (id) => {
     const selectedComponent = UserData.find((user) => user.id === id);
     setSelectedComponent(selectedComponent);
+    setAutoCompleteValue("");
   };
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>

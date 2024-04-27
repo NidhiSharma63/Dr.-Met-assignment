@@ -3,11 +3,12 @@ import React from "react";
 import { useAppContext } from "../../Provider/AppProvider";
 import ResearchData from "../../constant/ResearchData.json";
 
-const TopicComponent = () => {
+const TopicComponent = ({ setAutoCompleteValue }) => {
   const { setSelectedComponent, selectedComponent } = useAppContext();
   const handleClickOnResearch = (id) => {
     const selectedComponent = ResearchData.find((paper) => paper.id === id);
     setSelectedComponent(selectedComponent);
+    setAutoCompleteValue("");
   };
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
