@@ -56,7 +56,6 @@ const SwitchComponent = () => {
   const { setDarkThemeEnabled } = useAppContext();
   const handleClick = (event) => {
     // console.log(event.target.checked);
-
     if (event.target.checked) {
       setDarkThemeEnabled(true);
     } else {
