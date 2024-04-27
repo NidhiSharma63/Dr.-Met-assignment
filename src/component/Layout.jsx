@@ -232,7 +232,7 @@ export default function SideBar() {
             {/* <Avatar alt="" src="" sx={{ width: 45, height: 45, backgroundColor: "avatar.main" }} /> */}
           </ListItem>
           <List>
-            {userComponentIsGettingDisplayed ? (
+            {darkThemeEnabled ? (
               <UserComponent setAutoCompleteValue={setAutoCompleteValue} />
             ) : (
               <TopicComponent setAutoCompleteValue={setAutoCompleteValue} />
