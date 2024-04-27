@@ -24,6 +24,7 @@ import ResearchData from "../constant/ResearchData.json";
 import { SIDE_BAR_ICONS } from "../constant/SideBarIcons";
 import UserData from "../constant/UserData.json";
 import DisplayChatBox from "./DisplayChatBox";
+import SwitchComponent from "./sidebar/SwitchComponent";
 import TopicComponent from "./sidebar/TopicComponent";
 import UserComponent from "./sidebar/UserComponent";
 
@@ -112,32 +113,41 @@ export default function SideBar() {
             }}>
             <Avatar alt="" src="" sx={{ width: 45, height: 45, backgroundColor: "#363946" }} />
           </ListItem>
-          <List>
-            {SIDE_BAR_ICONS.map((item, index) => (
-              <ListItem
-                key={index}
-                sx={{
-                  padding: "20px",
-                  paddingLeft: "8px",
-                  borderLeft: index === 0 ? "4px solid #5D68B0" : "none",
-                  backgroundColor: index === 0 ? "#1B1C21" : "#222431",
-                  "&:hover": {
-                    backgroundColor: "#1B1C21",
-                  },
-                }}>
-                <ListItemButton
+          <List sx={{ display: "flex", height: "100%", justifyContent: "space-between", flexDirection: "column" }}>
+            <Box>
+              {SIDE_BAR_ICONS.map((item, index) => (
+                <ListItem
+                  key={index}
                   sx={{
+                    height: "80px",
+                    padding: "20px",
+                    paddingLeft: "8px",
+                    borderLeft: index === 0 ? "4px solid #5D68B0" : "none",
+                    backgroundColor: index === 0 ? "#1B1C21" : "#222431",
                     "&:hover": {
                       backgroundColor: "#1B1C21",
                     },
                   }}>
-                  <ListItemIcon>
-                    {/* Check if the current index is 0 for the first item */}
-                    <item.icon sx={{ fontSize: 18, color: index === 0 ? "#5D68B0" : "white" }} />
-                  </ListItemIcon>
-                </ListItemButton>
-              </ListItem>
-            ))}
+                  <ListItemButton
+                    sx={{
+                      "&:hover": {
+                        backgroundColor: "#1B1C21",
+                      },
+                    }}>
+                    <ListItemIcon>
+                      {/* Check if the current index is 0 for the first item */}
+                      <item.icon sx={{ fontSize: 18, color: index === 0 ? "#5D68B0" : "white" }} />
+                    </ListItemIcon>
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </Box>
+            <ListItem
+              sx={{
+                alignSelf: "flex-end",
+              }}>
+              <SwitchComponent />
+            </ListItem>
           </List>
         </Drawer>
       </Box>
